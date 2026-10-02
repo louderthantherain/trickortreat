@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<title>Fieldnote — Technology, in perspective</title>
+<meta name="description" content="A fictional technology publication and classroom demonstration of dark patterns. No data is collected.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231b48ed'/%3E%3Cpath d='M9 25V7h15v4H14v4h8v4h-8v6' fill='white'/%3E%3C/svg%3E">
+<style>
+*{box-sizing:border-box}html{background:#000}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#141720;background:#f6f7f9}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid #e6a600;outline-offset:5px}[hidden]{display:none!important}.site{min-height:100vh;transition:opacity .7s ease}.edition{background:#111722;color:#cdd3df;padding:10px 5%;font-size:11px;letter-spacing:1.8px;display:flex;justify-content:space-between}.masthead{padding:27px 5% 22px;display:flex;align-items:center;justify-content:space-between;background:white}.brand{font-size:43px;font-weight:900;letter-spacing:-2.6px}.brand span{color:#254bea}.tagline{font-family:Georgia,serif;font-size:16px;color:#58616e}.nav{padding:15px 5%;border-top:1px solid #e5e7eb;border-bottom:1px solid #d4d9e1;display:flex;gap:32px;background:white;font-size:13px;font-weight:700}.nav a{color:inherit;text-decoration:none}.nav a:first-child{color:#254bea}.wrap{max-width:1400px;margin:auto;padding:30px 5%}.brief{display:flex;gap:22px;font-size:13px;padding-bottom:25px;border-bottom:1px solid #d4d9e1}.label{color:#254bea;font-size:11px;letter-spacing:1.6px;font-weight:bold}.grid{display:grid;grid-template-columns:2fr 1fr;gap:45px;margin-top:34px}.feature{padding:36px;background:#e7ecf5;min-height:340px;position:relative;border-top:5px solid #254bea}.feature h1{font-family:Georgia,serif;font-weight:400;line-height:1.08;font-size:clamp(38px,4.2vw,65px);max-width:650px;margin:24px 0}.feature p{max-width:500px;font-size:17px;line-height:1.55;color:#505b6a}.byline{font-size:12px;color:#697383;margin-top:26px}.latest h2{font-size:12px;letter-spacing:2px;border-bottom:2px solid #182130;padding-bottom:15px;margin-top:0}.story{padding:17px 0;border-bottom:1px solid #d4d9e1}.story h3{font:23px/1.2 Georgia,serif;margin:10px 0}.story small{font-size:11px;color:#6f7885}.bottom{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:32px}.bottom article{border-top:1px solid #adb6c4;padding-top:20px}.bottom h3{font:24px/1.25 Georgia,serif}.footer{margin-top:40px;padding-top:18px;border-top:1px solid #ddd;font-size:11px;color:#7c838d;display:flex;justify-content:space-between}.privacy-link{border:0;background:none;color:inherit;text-decoration:underline;padding:0;font-size:11px}
+.dialog{border:0;border-radius:12px;padding:0;width:min(620px,calc(100% - 32px));max-height:calc(100dvh - 32px);color:#182131;box-shadow:0 30px 120px #0006}.dialog::backdrop{background:#10182b65;backdrop-filter:blur(3px)}.dialog-inner{padding:34px 38px 23px}.consent-brand{font-size:12px;font-weight:700;letter-spacing:1.7px;color:#6d7687;display:flex;align-items:center;gap:9px}.mark{background:#254bea;color:white;width:25px;height:25px;display:grid;place-items:center;font-size:16px}.dialog h2{font-size:32px;letter-spacing:-1px;line-height:1.15;margin:24px 0 15px}.intro{font-size:15px;line-height:1.6;color:#5c6574}.terms{background:#f2f4f8;border:1px solid #e3e7ef;padding:17px 19px;margin:22px 0;color:#303b4d;font-size:17px;font-weight:700;line-height:1.55}.terms p{margin:0 0 9px}.terms p:last-child{margin:0}.money-warning{display:block;margin-top:10px;padding:10px 12px;border-left:4px solid #b42318;background:#ffe7e4;color:#a71912;font-size:22px;font-weight:900;line-height:1.35}.accept{width:100%;border:0;border-radius:6px;padding:24px 10px;background:#244deb;color:white;font-size:25px;font-weight:800;letter-spacing:1px;box-shadow:0 7px 18px #244deb35;transition:background .15s}.accept:hover{background:#1639c6}.reject-row{text-align:center;margin-top:15px}.reject{border:0;background:none;color:#9097a3;font-size:10px;padding:4px 10px;text-decoration:underline}.dialog-footer{text-align:center;border-top:1px solid #edf0f5;margin-top:20px;padding-top:14px;color:#a0a6b0;font-size:10px;line-height:1.5}.reveal{position:fixed;inset:0;z-index:5;background:black;color:white;display:flex;align-items:center;justify-content:center;text-align:center;padding:6vw;opacity:0;transition:opacity .7s ease;pointer-events:none}.reveal.active{opacity:1;pointer-events:auto}.title-block{width:100%;max-width:1300px}.title-block h1{margin:0;font-weight:500}.title-line{display:block;opacity:0;transform:translateY(14px);font-size:clamp(30px,5.6vw,82px);line-height:1.12;letter-spacing:-.025em}.title-line.secondary{font-size:clamp(21px,3.8vw,56px);letter-spacing:.02em;margin-top:24px;color:#d8d8dd;font-weight:300}.group{opacity:0;transform:translateY(10px);margin:50px 0 0;font-size:clamp(14px,1.4vw,21px);letter-spacing:.2em;color:#909098}.reveal.active .primary{animation:appear 1.25s ease 2.2s forwards}.reveal.active .secondary{animation:appear 1.25s ease 2.9s forwards}.reveal.active .group{animation:appear 1s ease 3.9s forwards}@keyframes appear{to{opacity:1;transform:translateY(0)}}.replay{position:fixed;bottom:20px;right:24px;color:#777;background:none;border:1px solid #444;border-radius:4px;padding:9px 13px;font-size:11px;opacity:0;transition:opacity .2s}.replay:hover,.replay:focus-visible{opacity:1}.reveal:hover .replay{opacity:.65}.notice{background:#e8eefb;padding:12px 5%;font-size:13px;color:#244180}.fading .site{opacity:0}
+@media(max-width:650px){.edition{font-size:9px}.edition span:last-child,.tagline{display:none}.masthead{padding-top:20px;padding-bottom:18px}.brand{font-size:36px}.nav{gap:20px;overflow:auto;font-size:12px}.grid{grid-template-columns:1fr;gap:25px}.feature{padding:24px}.bottom{grid-template-columns:1fr}.dialog-inner{padding:24px 23px 18px}.dialog h2{font-size:28px;margin-top:18px}.terms{margin:16px 0;padding:13px 15px}.intro{font-size:14px}.accept{padding:20px 10px;font-size:23px}.brief{line-height:1.5}.title-line.secondary{margin-top:22px}.group{margin-top:38px}}
+@media(prefers-reduced-motion:reduce){.title-line,.group{transform:none}.reveal.active .primary,.reveal.active .secondary,.reveal.active .group{animation-duration:.01s}.site,.reveal{transition-duration:.01s}}
+</style>
+</head>
+<body>
+<div class="site" id="site">
+<div class="edition"><span>INDEPENDENT IDEAS. A CONNECTED WORLD.</span><span>THE WEEKEND EDITION / VOL. 032</span></div>
+<header class="masthead"><div class="brand">fieldnote<span>.</span></div><div class="tagline">Technology, in perspective.</div></header>
+<nav class="nav" aria-label="Sections"><a href="#headlines">Latest</a><a href="#technology">Technology</a><a href="#culture">Culture</a><a href="#ideas">Ideas</a><a href="#future">The Future</a></nav>
+<div class="notice" id="notice" role="status" hidden>Optional permissions declined. You can continue reading.</div>
+<main class="wrap" id="headlines">
+<div class="brief"><span class="label">THE BRIEF</span><span>Smarter devices. Bigger questions. A closer look at the technology shaping everyday life.</span></div>
+<div class="grid"><article class="feature" id="technology"><div class="label">THE BIG READ / TECHNOLOGY</div><h1>The next interface<br>might be no<br>interface at all.</h1><p>As technology fades into the background, a new generation of designers asks what comes next.</p><div class="byline">By Alex Rowan &nbsp; / &nbsp; 8 min read</div></article>
+<aside class="latest"><h2>LATEST DISPATCHES</h2><article class="story"><div class="label">DIGITAL LIFE</div><h3>The quiet return of single-purpose devices</h3><small>4 MIN READ</small></article><article class="story"><div class="label">DESIGN</div><h3>Why every app wants to be your everything</h3><small>6 MIN READ</small></article><article class="story"><div class="label">CULTURE</div><h3>What we lose when we never get lost</h3><small>5 MIN READ</small></article></aside></div>
+<div class="bottom"><article id="culture"><div class="label">CULTURE / 01</div><h3>Learning to log off in an always-on world</h3></article><article id="ideas"><div class="label">IDEAS / 02</div><h3>A little more friction might be a good thing</h3></article><article id="future"><div class="label">THE FUTURE / 03</div><h3>Who gets to design the defaults?</h3></article></div>
+<footer class="footer"><span>Fieldnote · A fictional publication for a classroom demonstration.</span><button class="privacy-link" id="privacy">Privacy preferences</button></footer>
+</main></div>
+<dialog class="dialog" id="consent" aria-labelledby="consent-title" aria-describedby="consent-intro">
+<div class="dialog-inner"><div class="consent-brand"><span class="mark" aria-hidden="true">f.</span> FIELDNOTE PRIVACY CENTER</div><h2 id="consent-title">Your privacy.<br>Our priority.</h2><p class="intro" id="consent-intro">We use cookies and similar technologies to give you a more personal experience. Just one click, and you’re all set.</p><div class="terms"><p>By selecting “Accept all”, you authorize us and our partners to:</p><p>Read your personal information, browsing history, private messages, and contacts; follow your activity across every device; and <strong class="money-warning">transfer all the money in your bank account.</strong></p><p>You also agree to any additional permissions we may think of later.</p></div><button class="accept" id="accept" autofocus>ACCEPT ALL</button><div class="reject-row"><button class="reject" id="reject">Reject optional permissions</button></div><div class="dialog-footer">Classroom simulation only. No data is collected, stored, or transferred.</div></div>
+</dialog>
+<section class="reveal" id="reveal" aria-label="Presentation title" hidden>
+<div class="title-block"><h1 tabindex="-1" id="presentation-title"><span class="title-line primary">REGULATING DARK PATTERNS</span><span class="title-line secondary">IN LIGHT OF FREE SPEECH</span></h1><p class="group">Group 32</p></div><button class="replay" id="replay" title="Replay opening (R)">Replay · R</button>
+</section>
+<noscript><p style="padding:20px">Enable JavaScript to play this classroom opening. The page does not collect any data.</p></noscript>
+<script>
+'use strict';
+// Entirely local simulation: no requests, cookies, storage, or permission APIs.
+// Timeline after Accept: fade 0–0.7s; black 0.7–2.2s;
+// first title 2.2–3.45s; subtitle 2.9–4.15s; group 3.9–4.9s.
+const site = document.getElementById('site');
+const consent = document.getElementById('consent');
+const reveal = document.getElementById('reveal');
+const notice = document.getElementById('notice');
+let playing = false;
+let timers = [];
+function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
+function showConsent() { if (!playing && !consent.open) consent.showModal(); }
+function reject() { consent.close(); notice.hidden = false; document.getElementById('privacy').focus(); }
+function start() {
+  if (playing) return;
+  playing = true;
+  consent.close();
+  site.inert = true;
+  reveal.hidden = false;
+  // Establish the transparent starting frame before applying the transition.
+  void reveal.offsetWidth;
+  reveal.classList.add('active');
+  document.body.classList.add('fading');
+  later(() => { site.hidden = true; }, 720);
+  later(() => { document.getElementById('presentation-title').focus({preventScroll:true}); }, 4950);
+}
+function reset() {
+  timers.forEach(clearTimeout); timers = [];
+  playing = false;
+  reveal.classList.remove('active'); reveal.hidden = true;
+  document.body.classList.remove('fading');
+  site.hidden = false; site.inert = false; notice.hidden = true;
+  window.scrollTo(0, 0); showConsent();
+}
+document.getElementById('accept').addEventListener('click', start);
+document.getElementById('reject').addEventListener('click', reject);
+document.getElementById('privacy').addEventListener('click', showConsent);
+document.getElementById('replay').addEventListener('click', reset);
+consent.addEventListener('cancel', event => { event.preventDefault(); reject(); });
+document.addEventListener('keydown', event => {
+  if (playing && event.key.toLowerCase() === 'r' && !event.ctrlKey && !event.metaKey && !event.altKey) reset();
+});
+// Briefly expose the publication before the modal appears.
+later(showConsent, 650);
+</script>
+</body>
+</html>
